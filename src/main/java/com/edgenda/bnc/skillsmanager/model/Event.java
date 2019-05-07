@@ -77,4 +77,32 @@ public class Event {
     public List<Guest> getGuests() {
         return guests;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getDuration() {
+        return Duration;
+    }
+
+    public void setDuration(int duration) {
+        Duration = duration;
+    }
+
+    public String getLocation() {
+        return Location;
+    }
+
+    public void setLocation(String location) {
+        Location = location;
+    }
+
+    public void setGuests(List<Guest> guests) {
+        this.guests = guests;
+    }
 }
