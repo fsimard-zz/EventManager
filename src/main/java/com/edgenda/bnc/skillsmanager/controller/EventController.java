@@ -1,6 +1,5 @@
 package com.edgenda.bnc.skillsmanager.controller;
 
-import com.edgenda.bnc.skillsmanager.model.Employee;
 import com.edgenda.bnc.skillsmanager.model.Event;
 import com.edgenda.bnc.skillsmanager.model.Skill;
 import com.edgenda.bnc.skillsmanager.service.EventService;
@@ -39,12 +38,7 @@ public class EventController {
     @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
     public void updateEvent(@PathVariable Long id, @RequestBody Event event) {
         es.updateEvent(
-                new Event(
-                        id,
-                        event.getName(),
-                        event.getDescription(),
-                        event.getGuests()
-                )
+                new Event()
         );
     }
 
