@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Employee {
+public class Guest {
 
     @Id
     @GeneratedValue
@@ -24,26 +24,26 @@ public class Employee {
     @NotEmpty
     private String email;
 
-    @ManyToMany(mappedBy = "employees")
-    private List<Skill> skills;
+    @ManyToMany(mappedBy = "Events")
+    private List<Event> events;
 
-    public Employee() {
+    public Guest() {
     }
 
-    public Employee(Long id, String firstName, String lastName, String email, List<Skill> skills) {
+    public Guest(Long id, String firstName, String lastName, String email, List<Event> events) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.skills = skills;
+        this.events = events;
     }
 
     @PersistenceConstructor
-    public Employee(String firstName, String lastName, String email, List<Skill> skills) {
+    public Guest(String firstName, String lastName, String email, List<Event> events) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.skills = skills;
+        this.events = events;
     }
 
     public Long getId() {
@@ -62,15 +62,5 @@ public class Employee {
         return email;
     }
 
-    public List<Skill> getSkills() {
-        return skills;
-    }
-
-    @PreRemove
-    private void removeSkillsFromEmployee() {
-        for (Skill skill : skills) {
-            skill.getEmployees().remove(this);
-        }
-    }
 
 }

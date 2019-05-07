@@ -1,13 +1,18 @@
 package com.edgenda.bnc.skillsmanager.model;
 
+import com.edgenda.bnc.skillsmanager.model.Guest;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.PersistenceConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import java.util.List;
 
 @Entity
-public class Skill {
+public class Event {
 
     @Id
     @GeneratedValue
@@ -20,24 +25,24 @@ public class Skill {
     private String description;
 
     @ManyToMany
-    @JoinTable(name = "EMPLOYEES_SKILLS")
-    private List<Employee> employees;
+    @JoinTable(name = "GUEST_LIST")
+    private List<Guest> guests;
 
-    public Skill() {
+    public Event() {
     }
 
-    public Skill(Long id, String name, String description, List<Employee> employees) {
+    public Event(Long id, String name, String description, List<Guest> guests) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.employees = employees;
+        this.guests = guests;
     }
 
     @PersistenceConstructor
-    public Skill(String name, String description, List<Employee> employees) {
+    public Event(String name, String description, List<Guest> guests) {
         this.name = name;
         this.description = description;
-        this.employees = employees;
+        this.guests = guests;
     }
 
     public Long getId() {
@@ -52,7 +57,7 @@ public class Skill {
         return description;
     }
 
-    public List<Employee> getEmployees() {
-        return employees;
+    public List<Guest> getGuests() {
+        return guests;
     }
 }
