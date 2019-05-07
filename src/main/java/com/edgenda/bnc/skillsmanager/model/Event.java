@@ -3,7 +3,11 @@ package com.edgenda.bnc.skillsmanager.model;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.PersistenceConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import java.time.LocalDateTime;
 import java.util.List;
 @Entity
@@ -22,9 +26,9 @@ public class Event {
     @NotEmpty
     private LocalDateTime startDate;
     @NotEmpty
-    private LocalDateTime EndDate;
+    private LocalDateTime endDate;
     @NotEmpty
-    private String Location;
+    private String location;
 
    
 
@@ -35,26 +39,25 @@ public class Event {
     public Event() {
     }
 
-    public Event(Long id, String name, String description, LocalDateTime startDate,LocalDateTime EndDate, String Objet, String Location, List<Guest> guests) {
+    public Event(Long id, String name, String description, LocalDateTime startDate,LocalDateTime endDate, String location, List<Guest> guests) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.guests = guests;
         this.startDate = startDate;
-        this.EndDate = EndDate;
-        this.Location = Location;
+        this.endDate = endDate;
+        this.location = location;
 
     }
 
     @PersistenceConstructor
-    public Event(String name, String description, int Duration, String Objet, String Location, List<Guest> guests) {
+    public Event(String name, String description, LocalDateTime startDate,LocalDateTime endDate, String location, List<Guest> guests) {
         this.name = name;
         this.description = description;
         this.guests = guests;
         this.startDate = startDate;
-        this.EndDate = EndDate;
-
-        this.Location = Location;
+        this.endDate = endDate;
+        this.location = location;
     }
 
     public Long getId() {
@@ -95,19 +98,19 @@ public class Event {
     }
 
     public LocalDateTime getEndDate() {
-        return EndDate;
+        return endDate;
     }
 
     public void setEndDate(LocalDateTime endDate) {
-        EndDate = endDate;
+        endDate = endDate;
     }
 
     public String getLocation() {
-        return Location;
+        return location;
     }
 
     public void setLocation(String location) {
-        Location = location;
+        location = location;
     }
 
     public void setGuests(List<Guest> guests) {
