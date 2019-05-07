@@ -17,7 +17,7 @@ public class EventRepositoryTest {
   private EventRepository eventRepository;
 
   @Test
-  public void testDateRange() {
+  public void testFindById() {
     Optional<Event> event = eventRepository.findById(1L);
     int n = 0;
   }

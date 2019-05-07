@@ -1,7 +1,6 @@
 package com.edgenda.bnc.skillsmanager.repository;
 
 import com.edgenda.bnc.skillsmanager.model.Event;
-import com.edgenda.bnc.skillsmanager.model.Skill;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
