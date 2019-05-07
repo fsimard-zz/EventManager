@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Guest {
+public class Employee {
 
     @Id
     @GeneratedValue
@@ -24,26 +24,26 @@ public class Guest {
     @NotEmpty
     private String email;
 
-    @ManyToMany(mappedBy = "Events")
-    private List<Event> events;
+    @ManyToMany(mappedBy = "employees")
+    private List<Skill> skills;
 
-    public Guest() {
+    public Employee() {
     }
 
-    public Guest(Long id, String firstName, String lastName, String email, List<Event> events) {
+    public Employee(Long id, String firstName, String lastName, String email, List<Skill> skills) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.events = events;
+        this.skills = skills;
     }
 
     @PersistenceConstructor
-    public Guest(String firstName, String lastName, String email, List<Event> events) {
+    public Employee(String firstName, String lastName, String email, List<Skill> skills) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.events = events;
+        this.skills = skills;
     }
 
     public Long getId() {
@@ -62,27 +62,15 @@ public class Guest {
         return email;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public List<Skill> getSkills() {
+        return skills;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    @PreRemove
+    private void removeSkillsFromEmployee() {
+        for (Skill skill : skills) {
+            skill.getEmployees().remove(this);
+        }
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public List<Event> getEvents() {
-        return events;
-    }
-
-    public void setEvents(List<Event> events) {
-        this.events = events;
-    }
 }
