@@ -1,16 +1,11 @@
 package com.edgenda.bnc.skillsmanager.service;
 
-import com.edgenda.bnc.skillsmanager.model.Employee;
 import com.edgenda.bnc.skillsmanager.model.Guest;
-import com.edgenda.bnc.skillsmanager.repository.EmployeeRepository;
 import com.edgenda.bnc.skillsmanager.repository.EventRepository;
 import com.edgenda.bnc.skillsmanager.repository.GuestRepository;
-import com.edgenda.bnc.skillsmanager.repository.SkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.Assert;
 
-import java.util.Collections;
 import java.util.List;
 
 @Service
