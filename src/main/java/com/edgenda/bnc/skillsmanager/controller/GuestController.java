@@ -1,13 +1,16 @@
 package com.edgenda.bnc.skillsmanager.controller;
 
 
-import com.edgenda.bnc.skillsmanager.model.Event;
 import com.edgenda.bnc.skillsmanager.model.Guest;
-import com.edgenda.bnc.skillsmanager.service.EventService;
 import com.edgenda.bnc.skillsmanager.service.GuestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -41,12 +44,12 @@ public class GuestController {
 
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public Guest getGuest(@PathVariable Long id){
-        return gs.getGuest(id);
+        return gs.getGuestById(id);
     }
 
     @RequestMapping(path = "/{id}/event", method = RequestMethod.GET)
-    public List<Event> getGuestsByEvent(@PathVariable Long eventId){
-        return gs.getGuestsByEvent(eventId);
+    public List<Guest> getGuestsByEvent(@PathVariable Long eventId){
+        return gs.getGuestsByEventId(eventId);
     }
 
     @RequestMapping(path = "/", method = RequestMethod.DELETE)
