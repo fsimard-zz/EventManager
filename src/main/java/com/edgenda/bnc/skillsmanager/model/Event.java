@@ -28,7 +28,7 @@ public class Event {
     private int Duration;
     @NotEmpty
     private String Objet;
-
+//YL
     @NotEmpty
     private String Location;
 
