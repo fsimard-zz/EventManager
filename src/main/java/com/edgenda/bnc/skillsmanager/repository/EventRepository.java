@@ -4,13 +4,14 @@ import com.edgenda.bnc.skillsmanager.model.Event;
 import com.edgenda.bnc.skillsmanager.model.Skill;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface EventRepository extends JpaRepository<Skill, Long> {
+public interface EventRepository extends JpaRepository<Event, Long>, CrudRepository<Event, Long> {
 
     Optional<Event> findById(Long id);
 

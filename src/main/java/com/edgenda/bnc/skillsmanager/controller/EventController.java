@@ -22,11 +22,11 @@ public class EventController {
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public List<Event> getEvents() {
-        return es.getEvents();
+        return es.getAllEvents();
     }
 
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
-    public List<Event> getEvent(@PathVariable Long id) { return es.getEvent(id);
+    public Event getEvent(@PathVariable Long id) { return es.getEventById(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -48,8 +48,8 @@ public class EventController {
     }
 
     @RequestMapping(path = "/{id}/guest", method = RequestMethod.GET)
-    public List<Guest> getEventGuest(@PathVariable Long id) {
-        return es.eventGuest(id);
+    public List<Event> getEventGuest(@PathVariable Long id) {
+        return es.getEventsByGuest(id);
     }
 
 

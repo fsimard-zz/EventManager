@@ -1,16 +1,11 @@
 package com.edgenda.bnc.skillsmanager.model;
 
-import com.edgenda.bnc.skillsmanager.model.Guest;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.PersistenceConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import java.util.List;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 @Entity
 public class Event {
 
