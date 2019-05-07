@@ -26,9 +26,7 @@ public class Event {
 
     @NotEmpty
     private int Duration;
-    @NotEmpty
-    private String Objet;
-//YL
+
     @NotEmpty
     private String Location;
 
@@ -45,7 +43,7 @@ public class Event {
         this.description = description;
         this.guests = guests;
         this.Duration = Duration;
-        this.Objet = Objet;
+
         this.Location = Location;
 
     }
@@ -56,7 +54,7 @@ public class Event {
         this.description = description;
         this.guests = guests;
         this.Duration = Duration;
-        this.Objet = Objet;
+
         this.Location = Location;
     }
 
