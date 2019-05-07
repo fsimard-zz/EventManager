@@ -13,7 +13,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     Optional<Employee> findById(Long id);
 
-    @Query("SELECT employee FROM Employee employee JOIN employee.skills skill WHERE skill.id = ?1")
+    @Query("SELECT guest FROM Gest employee JOIN guest.skills skill WHERE skill.id = ?1")
     List<Employee> findBySkillId(Long skillId);
 
 }
