@@ -31,6 +31,17 @@ public class Event {
     @NotEmpty
     private String Location;
 
+    public Organizer getOrganisateur() {
+        return Organisateur;
+    }
+
+    public void setOrganisateur(Organizer organisateur) {
+        Organisateur = organisateur;
+    }
+
+    @NotEmpty
+    private Organizer Organisateur;
+
     @ManyToMany
     @JoinTable(name = "GUEST_LIST")
     private List<Guest> guests;
