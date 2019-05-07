@@ -1,14 +1,16 @@
 package com.edgenda.bnc.skillsmanager.model;
 
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.data.annotation.PersistenceConstructor;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import java.util.List;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.data.annotation.PersistenceConstructor;
 
 @Entity
 public class Guest {
@@ -27,7 +29,8 @@ public class Guest {
     @NotEmpty
     private String email;
 
-    @ManyToMany(mappedBy = "Events")
+    @ManyToMany
+    @JoinTable(name = "GUEST_EVENT")
     private List<Event> events;
 
     public Guest() {

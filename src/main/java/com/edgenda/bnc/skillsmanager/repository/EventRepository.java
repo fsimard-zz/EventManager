@@ -15,7 +15,7 @@ public interface EventRepository extends JpaRepository<Event, Long>, CrudReposit
 
     Optional<Event> findById(Long id);
 
-    @Query("SELECT event FROM Event event JOIN event.guests guests WHERE guest.id = ?1")
+    @Query("SELECT event FROM Event event JOIN event.guests guests WHERE guests.id = ?1")
     List<Event> findByGuestId(Long guestId);
 
 }
