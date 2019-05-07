@@ -24,6 +24,14 @@ public class Event {
     @NotEmpty
     private String description;
 
+    @NotEmpty
+    private int Duration;
+    @NotEmpty
+    private String Objet;
+//YL
+    @NotEmpty
+    private String Location;
+
     @ManyToMany
     @JoinTable(name = "GUEST_LIST")
     private List<Guest> guests;
@@ -31,18 +39,25 @@ public class Event {
     public Event() {
     }
 
-    public Event(Long id, String name, String description, List<Guest> guests) {
+    public Event(Long id, String name, String description, int Duration, String Objet, String Location, List<Guest> guests) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.guests = guests;
+        this.Duration = Duration;
+        this.Objet = Objet;
+        this.Location = Location;
+
     }
 
     @PersistenceConstructor
-    public Event(String name, String description, List<Guest> guests) {
+    public Event(String name, String description, int Duration, String Objet, String Location, List<Guest> guests) {
         this.name = name;
         this.description = description;
         this.guests = guests;
+        this.Duration = Duration;
+        this.Objet = Objet;
+        this.Location = Location;
     }
 
     public Long getId() {
@@ -55,6 +70,10 @@ public class Event {
 
     public String getDescription() {
         return description;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public List<Guest> getGuests() {
