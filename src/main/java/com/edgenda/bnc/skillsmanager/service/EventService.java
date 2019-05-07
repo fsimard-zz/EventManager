@@ -35,6 +35,10 @@ public class EventService {
                 .orElseThrow(() -> new UnknownEventException(id));
     }
 
+    public List<Event> getEventsByGuest(Long guestId) {
+        return null;
+    }
+
     public void deleteEvent(Long id){
         Assert.notNull(id, "ID cannot be null");
         eventRepository.delete(id);
