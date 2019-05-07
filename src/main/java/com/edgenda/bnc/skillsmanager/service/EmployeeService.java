@@ -1,7 +1,5 @@
 package com.edgenda.bnc.skillsmanager.service;
 
-import com.edgenda.bnc.skillsmanager.model.Employee;
-import com.edgenda.bnc.skillsmanager.model.Skill;
 import com.edgenda.bnc.skillsmanager.repository.EmployeeRepository;
 import com.edgenda.bnc.skillsmanager.repository.SkillRepository;
 import com.edgenda.bnc.skillsmanager.service.exception.UnknownEmployeeException;
