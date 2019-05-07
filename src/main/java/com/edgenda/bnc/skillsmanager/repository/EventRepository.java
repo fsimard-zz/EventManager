@@ -1,7 +1,6 @@
 package com.edgenda.bnc.skillsmanager.repository;
 
 import com.edgenda.bnc.skillsmanager.model.Event;
-import com.edgenda.bnc.skillsmanager.model.Skill;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -22,4 +21,5 @@ public interface EventRepository extends JpaRepository<Event, Long>, CrudReposit
     @Query("SELECT event FROM Event event JOIN event.guests guests WHERE event.startDate >= ?1 AND event.endDate <= ?2")
     List<Event> findByPeriod(LocalDateTime startDate, LocalDateTime endDate);
 
+    //List<Event> findByOrganisateur(Long organizerID);
 }
