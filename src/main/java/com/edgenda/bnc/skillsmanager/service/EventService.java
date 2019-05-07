@@ -1,7 +1,7 @@
 package com.edgenda.bnc.skillsmanager.service;
 
 import com.edgenda.bnc.skillsmanager.model.Event;
-import com.edgenda.bnc.skillsmanager.model.Skill;
+import com.edgenda.bnc.skillsmanager.model.Guest;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class EventService {
         return null;
     }
 
-    public List<Skill> eventGuest(Long id) {
+    public List<Guest> eventGuest(Long id) {
         return null;
     }
 
