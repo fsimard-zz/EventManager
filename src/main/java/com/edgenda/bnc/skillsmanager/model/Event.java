@@ -26,7 +26,11 @@ public class Event {
     @NotEmpty
     private String Location;
 
-   
+    @NotEmpty
+    private Boolean isCancelled;
+
+    @NotEmpty
+    private String Organizer;
 
     @ManyToMany
     @JoinTable(name = "GUEST_LIST")
@@ -35,7 +39,7 @@ public class Event {
     public Event() {
     }
 
-    public Event(Long id, String name, String description, LocalDateTime startDate,LocalDateTime EndDate, String Objet, String Location, List<Guest> guests) {
+    public Event(Long id, String name, String description, LocalDateTime startDate,LocalDateTime EndDate, String organizer, String Location, List<Guest> guests,Boolean iscancelled) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -43,18 +47,20 @@ public class Event {
         this.startDate = startDate;
         this.EndDate = EndDate;
         this.Location = Location;
-
+        this.Organizer=organizer;
+        this.isCancelled=iscancelled;
     }
 
     @PersistenceConstructor
-    public Event(String name, String description, int Duration, String Objet, String Location, List<Guest> guests) {
+    public Event(String name, String description, int Duration, String organizer, String Location, List<Guest> guests, Boolean iscancelled) {
         this.name = name;
         this.description = description;
         this.guests = guests;
         this.startDate = startDate;
         this.EndDate = EndDate;
-
+        this.Organizer=organizer;
         this.Location = Location;
+        this.isCancelled=iscancelled;
     }
 
     public Long getId() {
@@ -112,5 +118,22 @@ public class Event {
 
     public void setGuests(List<Guest> guests) {
         this.guests = guests;
+    }
+
+
+    public Boolean getCancelled() {
+        return isCancelled;
+    }
+
+    public void setCancelled(Boolean cancelled) {
+        isCancelled = cancelled;
+    }
+
+    public String getOrganizer() {
+        return Organizer;
+    }
+
+    public void setOrganizer(String organizer) {
+        Organizer = organizer;
     }
 }
