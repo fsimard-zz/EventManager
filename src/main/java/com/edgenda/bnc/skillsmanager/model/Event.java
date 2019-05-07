@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import java.util.List;
-
+import java.time.LocalDateTime;
 @Entity
 public class Event {
 
@@ -25,10 +25,22 @@ public class Event {
     private String description;
 
     @NotEmpty
-    private int Duration;
-
+    private LocalDateTime startDate;
+    @NotEmpty
+    private LocalDateTime EndDate;
     @NotEmpty
     private String Location;
+
+    public Organizer getOrganisateur() {
+        return Organisateur;
+    }
+
+    public void setOrganisateur(Organizer organisateur) {
+        Organisateur = organisateur;
+    }
+
+    @NotEmpty
+    private Organizer Organisateur;
 
     @ManyToMany
     @JoinTable(name = "GUEST_LIST")
@@ -37,13 +49,13 @@ public class Event {
     public Event() {
     }
 
-    public Event(Long id, String name, String description, int Duration, String Objet, String Location, List<Guest> guests) {
+    public Event(Long id, String name, String description, LocalDateTime startDate,LocalDateTime EndDate, String Objet, String Location, List<Guest> guests) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.guests = guests;
-        this.Duration = Duration;
-
+        this.startDate = startDate;
+        this.EndDate = EndDate;
         this.Location = Location;
 
     }
@@ -53,7 +65,8 @@ public class Event {
         this.name = name;
         this.description = description;
         this.guests = guests;
-        this.Duration = Duration;
+        this.startDate = startDate;
+        this.EndDate = EndDate;
 
         this.Location = Location;
     }
@@ -86,12 +99,21 @@ public class Event {
         this.description = description;
     }
 
-    public int getDuration() {
-        return Duration;
+
+    public LocalDateTime getStartDate() {
+        return startDate;
     }
 
-    public void setDuration(int duration) {
-        Duration = duration;
+    public void setStartDate(LocalDateTime startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDateTime getEndDate() {
+        return EndDate;
+    }
+
+    public void setEndDate(LocalDateTime endDate) {
+        EndDate = endDate;
     }
 
     public String getLocation() {
