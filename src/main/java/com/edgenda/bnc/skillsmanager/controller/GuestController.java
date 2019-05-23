@@ -26,7 +26,7 @@ public class GuestController {
     }
 
 
-    @RequestMapping(path = "/", method = RequestMethod.GET)
+    @RequestMapping(path = "", method = RequestMethod.GET)
     public List<Guest> getAllGuest(){
         return gs.getAllGuest();
     }
@@ -52,7 +52,7 @@ public class GuestController {
         return gs.getGuestsByEventId(eventId);
     }
 
-    @RequestMapping(path = "/", method = RequestMethod.DELETE)
+    @RequestMapping(path = "", method = RequestMethod.DELETE)
     public void deleteGuest(@PathVariable long id){
         gs.deleteGuest(id);
     }

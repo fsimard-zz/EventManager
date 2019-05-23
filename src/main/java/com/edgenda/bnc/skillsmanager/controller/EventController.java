@@ -4,6 +4,7 @@ import com.edgenda.bnc.skillsmanager.model.Event;
 import com.edgenda.bnc.skillsmanager.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/events")
+@PreAuthorize("hasRole('ROLE_USER')")
 public class EventController {
 
     private final EventService es;
@@ -24,7 +26,8 @@ public class EventController {
         this.es = es;
     }
 
-    @RequestMapping(path = "/", method = RequestMethod.GET)
+    @RequestMapping(path = "", method = RequestMethod.GET)
+    @PreAuthorize("hasRole('ROLE_USER')")
     public List<Event> getEvents() {
         return es.getAllEvents();
     }
