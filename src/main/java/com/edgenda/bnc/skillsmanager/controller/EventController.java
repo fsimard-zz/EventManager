@@ -1,6 +1,7 @@
 package com.edgenda.bnc.skillsmanager.controller;
 
 import com.edgenda.bnc.skillsmanager.model.Event;
+import com.edgenda.bnc.skillsmanager.model.Invitation;
 import com.edgenda.bnc.skillsmanager.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -56,6 +57,10 @@ public class EventController {
         return es.getEventsByGuestId(id);
     }
 
+    @RequestMapping(path = "/{id}/invitation", method = RequestMethod.GET)
+    public List<Invitation> getEventInvitation(@PathVariable Long id) {
+        return es.getInvitationByEventId(id);
+    }
 
 //    @RequestMapping(method = RequestMethod.POST)
 //    @ResponseStatus(HttpStatus.CREATED)
