@@ -16,7 +16,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/events")
-@PreAuthorize("hasRole('ROLE_USER')")
 public class EventController {
 
     private final EventService es;
@@ -27,7 +26,6 @@ public class EventController {
     }
 
     @RequestMapping(path = "", method = RequestMethod.GET)
-    @PreAuthorize("hasRole('ROLE_USER')")
     public List<Event> getEvents() {
         return es.getAllEvents();
     }

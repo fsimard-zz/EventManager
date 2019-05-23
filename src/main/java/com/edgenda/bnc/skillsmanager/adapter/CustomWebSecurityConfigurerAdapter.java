@@ -29,13 +29,13 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/securityNone").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .httpBasic()
-                .authenticationEntryPoint(authenticationEntryPoint);
-        http.addFilterAfter(new CustomFilter(), BasicAuthenticationFilter.class);
+//        http.authorizeRequests()
+//                .antMatchers("/events").permitAll()
+//                .anyRequest().authenticated()
+//                .and()
+//                .httpBasic()
+//                .authenticationEntryPoint(authenticationEntryPoint);
+//        http.addFilterAfter(new CustomFilter(), BasicAuthenticationFilter.class);
     }
 
     @Bean
