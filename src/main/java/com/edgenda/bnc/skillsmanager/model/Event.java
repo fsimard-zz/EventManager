@@ -30,20 +30,24 @@ public class Event {
     @NotEmpty
     private String location;
 
-   
-
     @ManyToMany
     @JoinTable(name = "GUEST_LIST")
     private List<Guest> guests;
 
+    @ManyToMany
+    @JoinTable(name = "INVITATION_EVENT_LIST")
+    private List<Invitation> invitations;
+
+
     public Event() {
     }
 
-    public Event(Long id, String name, String description, String startDate,String endDate, String location, List<Guest> guests) {
+    public Event(Long id, String name, String description, String startDate,String endDate, String location, List<Guest> guests, List<Invitation> invitations) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.guests = guests;
+        this.invitations = invitations;
         this.startDate = startDate;
         this.endDate = endDate;
         this.location = location;
@@ -51,10 +55,11 @@ public class Event {
     }
 
     @PersistenceConstructor
-    public Event(String name, String description, String startDate,String endDate, String location, List<Guest> guests) {
+    public Event(String name, String description, String startDate,String endDate, String location, List<Guest> guests, List<Invitation> invitations) {
         this.name = name;
         this.description = description;
         this.guests = guests;
+        this.invitations = invitations;
         this.startDate = startDate;
         this.endDate = endDate;
         this.location = location;
@@ -64,30 +69,25 @@ public class Event {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
 
-    public List<Guest> getGuests() {
-        return guests;
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
-
 
     public String getStartDate() {
         return startDate;
@@ -113,7 +113,19 @@ public class Event {
         this.location = location;
     }
 
+    public List<Guest> getGuests() {
+        return guests;
+    }
+
     public void setGuests(List<Guest> guests) {
         this.guests = guests;
+    }
+
+    public List<Invitation> getInvitations() {
+        return invitations;
+    }
+
+    public void setInvitations(List<Invitation> invitations) {
+        this.invitations = invitations;
     }
 }

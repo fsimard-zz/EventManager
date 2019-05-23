@@ -1,6 +1,7 @@
 package com.edgenda.bnc.skillsmanager.repository;
 
 import com.edgenda.bnc.skillsmanager.model.Event;
+import com.edgenda.bnc.skillsmanager.model.Invitation;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,11 @@ import java.util.Optional;
 public class InvitationtRepositoryTest {
 
   @Autowired
-  private EventRepository eventRepository;
+  private InvitationRepository invitationRepository;
 
   @Test
   public void testFindById() {
-    Optional<Event> event = eventRepository.findById(1L);
+    Optional<Invitation> invitation = invitationRepository.findById(1L);
     int n = 0;
   }
 }
