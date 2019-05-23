@@ -33,9 +33,9 @@ public class EventService {
     }
 
     @Transactional
-    public void updateEvent(Event event){
+    public Event updateEvent(Event event){
         Assert.notNull(event, "Event cannot be null");
-        eventRepository.save(event);
+        return eventRepository.save(event);
     }
 
 

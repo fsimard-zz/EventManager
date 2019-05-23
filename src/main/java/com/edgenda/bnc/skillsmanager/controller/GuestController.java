@@ -26,7 +26,7 @@ public class GuestController {
     }
 
 
-    @RequestMapping(path = "/", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public List<Guest> getAllGuest(){
         return gs.getAllGuest();
     }

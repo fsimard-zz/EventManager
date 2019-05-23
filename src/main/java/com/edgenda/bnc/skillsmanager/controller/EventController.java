@@ -24,7 +24,7 @@ public class EventController {
         this.es = es;
     }
 
-    @RequestMapping(path = "/", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public List<Event> getEvents() {
         return es.getAllEvents();
     }
@@ -40,10 +40,8 @@ public class EventController {
     }
 
     @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
-    public void updateEvent(@PathVariable Long id, @RequestBody Event event) {
-        es.updateEvent(
-                new Event()
-        );
+    public Event updateEvent(@PathVariable Long id, @RequestBody Event event) {
+        return es.updateEvent(event);
     }
 
     @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
