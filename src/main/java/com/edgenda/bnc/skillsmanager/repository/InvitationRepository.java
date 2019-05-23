@@ -12,7 +12,4 @@ public interface InvitationRepository extends JpaRepository<Invitation, Long>, C
 
     Optional<Invitation> findById(Long id);
 
-//    @Query("SELECT guest FROM Guest guest JOIN guest.events events WHERE events.id = ?1")
-//    List<Guest> findByEventId(Long eventid);
-
 }
