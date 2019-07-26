@@ -2,7 +2,9 @@ package com.edgenda.bnc.skillsmanager.service;
 
 import com.edgenda.bnc.skillsmanager.model.Event;
 import com.edgenda.bnc.skillsmanager.model.Guest;
+import com.edgenda.bnc.skillsmanager.model.Invitation;
 import com.edgenda.bnc.skillsmanager.repository.EventRepository;
+import com.edgenda.bnc.skillsmanager.repository.InvitationRepository;
 import com.edgenda.bnc.skillsmanager.service.exception.InvalidDataException;
 import com.edgenda.bnc.skillsmanager.service.exception.UnknownEventException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ public class EventService {
 
     @Autowired
     private EventRepository eventRepository;
+
     @Autowired
     private GuestService guestService;
 
@@ -48,6 +51,11 @@ public class EventService {
     public List<Event> getEventsByGuestId(Long guestId) {
         Assert.notNull(guestId, "Guest ID cannot be null");
         return eventRepository.findByGuestId(guestId);
+    }
+
+    public List<Invitation> getInvitationByEventId(Long eventId) {
+        Assert.notNull(eventId, "Event ID cannot be null");
+        return eventRepository.findById(eventId).get().getInvitations();
     }
 
    /* public List<Event> getEventsByOrganizerId(Long organizerID) {
